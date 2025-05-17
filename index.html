@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لعبة كروت التعارف</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background-color: #343a40;
+      color: white;
+      padding: 1rem;
+      font-size: 1.5rem;
+    }
+    select, button {
+      margin: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+    }
+    .card {
+      margin: 2rem auto;
+      padding: 2rem;
+      width: 80%;
+      max-width: 600px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>🎴 لعبة كروت التعارف 🎴</header>
+
+  <label for="category">اختر الفئة:</label>
+  <select id="category">
+    <option value="red">نغمة في القلب (الأغاني)</option>
+    <option value="yellow">شاشة الحياة (الأفلام)</option>
+    <option value="black">Red Flags (تحذيرات)</option>
+  </select>
+
+  <button onclick="drawCard()">الكارت الجاي 🔁</button>
+
+  <div id="card" class="card">اختر فئة واضغط الزر لعرض كارت جديد</div>
+
+  <script>
+    const cards = {
+      red: [
+        "إيه الأغنية اللي دايمًا بتفكرك بطفولتك؟",
+        "إيه أغنية بتخليك تدمع أول ما تسمعها؟",
+        "أغنية بتديك باور وانت في المواصلات؟",
+        "مين أكتر فنان بتحب تسمعه لما تكون فرحان؟",
+        "أول حفلة حضرتها كانت لمين؟",
+        // ... أكمل باقي الكروت حسب الحاجة
+      ],
+      yellow: [
+        "إيه أكتر فيلم شفته أكتر من 5 مرات؟",
+        "لو حياتك كانت فيلم، مين المخرج؟",
+        "إيه المسلسل اللي اتعلقت بيه من أول حلقة؟",
+        "شخصية فيلم بتحس إنك شبهها؟",
+        "فيلم خلّاك تعيط؟",
+        // ... أكمل باقي الكروت حسب الحاجة
+      ],
+      black: [
+        "بيشتم الموظفين في المطاعم أو بيعامِل الناس من فوق.",
+        "بيحب يكون دايمًا صح، حتى لو غلطان.",
+        "عمره ما قالك 'أنا آسف'.",
+        "بيتكلم عن كل الإكسات بتوعه إنهم مجانين.",
+        "مش بيشاركك أي حاجة عن يومه أو حياته.",
+        // ... أكمل باقي الكروت حسب الحاجة
+      ]
+    };
+
+    function drawCard() {
+      const category = document.getElementById('category').value;
+      const cardList = cards[category];
+      const randomIndex = Math.floor(Math.random() * cardList.length);
+      const cardText = cardList[randomIndex];
+      document.getElementById('card').textContent = cardText;
+    }
+  </script>
+</body>
+</html>
