@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&family=Bebas+Neue&display=swap" rel="stylesheet">
   <title>Ice Breaker Game</title>
   <style>
     body {
@@ -12,6 +12,9 @@
       margin: 0;
       padding: 0;
       text-align: center;
+    }
+    .bebas {
+    font-family: 'Bebas Neue', cursive;
     }
     header {
       font-family: 'Cairo', Tahoma, Geneva, Verdana, sans-serif;
@@ -39,7 +42,8 @@
   </style>
 </head>
 <body>
-  <header>🎴 Ice Breaker 🎴</header>
+   <header class="bebas">🎴 Ice Breaker 🎴</header>
+
 
   <label for="category">اختر الفئة:</label>
   <select id="category">
@@ -56,9 +60,10 @@
 
   <div id="card" class="card">اختر فئة واضغط الزر لعرض كارت جديد</div>
 
-  <footer>
-    Developed By <em>Daly</em> And <em>Mariam</em>
-  </footer>
+ <footer>
+  Developed By <span style="color: red;">Daly</span> And <span style="color: red;">Mariam</span>
+</footer>
+
 
   <script>
     const cards = {
