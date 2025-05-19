@@ -6,75 +6,7 @@
   <title>Ice Breaker Game</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo&family=Bebas+Neue&display=swap" rel="stylesheet">
   <link rel="icon" href="https://esllibrary.s3.amazonaws.com/uploads/post/title_image/1964/Melissa_Key-Takeaways-from-TEFL-International-Webinar-on-Ice-Breaker-Games_Banner.png" type="image/png">
-  <style>
-    body {
-      font-family: 'Cairo', Tahoma, sans-serif;
-      background-color: #f8f9fa;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    .bebas {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 32px;
-    }
-    header {
-      background-color: #343a40;
-      color: white;
-      padding: 1rem;
-    }
-
-    select, button {
-      font-family: 'Cairo', Tahoma, sans-serif;
-      border: 2px solid #343a40;
-      border-radius: 8px;
-      background-color: #ffffff;
-      color: #343a40;
-      cursor: pointer;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      margin: 1rem;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #343a40;
-      color: white;
-    }
-
-    .card {
-      margin: 2rem auto;
-      padding: 2rem;
-      width: 80%;
-      font-family: 'Cairo', Tahoma, sans-serif;
-      max-width: 600px;
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-      font-size: 1.2rem;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-
-    .fade {
-      opacity: 0;
-      transform: scale(0.95);
-    }
-
-    footer {
-      position: relative;
-      bottom: 0;
-      width: 100%;
-      padding: 1rem;
-      background-color: #f1f1f1;
-      color: #343a40;
-      font-size: 1rem;
-      margin-top: 2rem;
-    }
-
-    footer span {
-      color: red;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -101,65 +33,6 @@
     Developed By <span>Daly</span> And <span>Mariam</span>
   </footer>
 
-  <script>
-    const cards = {
-      dreams: [
-        "لو فزت بمليون جنيه، هتعمل إيه أول حاجة؟",
-        "نفسك تعيش فين غير بلدك؟"
-      ],
-      situations: [
-        "احكي عن موقف محرج حصلك ومش قادر تنساه.",
-        "إيه آخر مرة ضحكت فيها من قلبك؟"
-      ],
-      relationships: [
-        "بتحب تعرّف الناس على نفسك إزاي؟",
-        "أول انطباع بتحاول تسيبه عند الناس إيه؟"
-      ],
-      entertainment: [
-        "إيه أكتر فيلم شوفته أكتر من مرة ومزهقتش؟",
-        "مسلسل تابعته للنهاية وندمت؟"
-      ],
-      personal: [
-        "إيه أكتر حاجة بتخاف منها بس مش بتقول لحد؟",
-        "بتحب تبدأ يومك بإيه؟"
-      ],
-      imagination: [
-        "لو عندك آلة زمن، هتروح فين؟",
-        "لو تقدر تكون أي شخصية خيالية، مين تختار؟",
-        "لو صحيت تاني يوم ولقيت نفسك في عالم تاني، هيكون عامل إزاي؟",
-        "لو تقدر تختفي ساعة في اليوم، هتعمل إيه؟"
-      ],
-      values: [
-        "إيه أهم مبدأ في حياتك؟",
-        "هل تؤمن إن الخير بيرجع؟",
-        "لو اضطريت تختار بين الصدق والراحة، تختار إيه؟",
-        "هل تقدر تسامح حد خانك؟"
-      ]
-    };
-
-    function drawCard() {
-      const category = document.getElementById("category").value;
-      const cardDiv = document.getElementById("card");
-      const cardSound = document.getElementById("cardSound");
-      const selectedCards = cards[category];
-
-      if (!selectedCards || selectedCards.length === 0) {
-        cardDiv.textContent = "لا يوجد كروت في هذه الفئة حاليًا.";
-        return;
-      }
-
-      const randomCard = selectedCards[Math.floor(Math.random() * selectedCards.length)];
-
-      // Play sound
-      cardSound.play();
-
-      // Add fade effect
-      cardDiv.classList.add("fade");
-      setTimeout(() => {
-        cardDiv.textContent = randomCard;
-        cardDiv.classList.remove("fade");
-      }, 300);
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
