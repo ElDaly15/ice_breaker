@@ -91,11 +91,22 @@ header {
   border-style: solid;
   box-sizing: border-box;
   overflow: hidden;
+  will-change: transform;
 }
 
-.theme-toggle:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--secondary-color);
+.theme-toggle:focus,
+.theme-toggle:active {
+  padding: 0.5rem !important;
+  width: 40px !important;
+  height: 40px !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background-clip: padding-box !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-user-select: none !important;
+  user-select: none !important;
 }
 
 .theme-toggle::-moz-focus-inner {
@@ -105,11 +116,13 @@ header {
 [data-theme="dark"] .theme-toggle {
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  transform: translateY(-50%);
 }
 
 [data-theme="dark"] .theme-toggle:hover {
   background: rgba(0, 0, 0, 0.4);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-50%);
 }
 
 select {
@@ -317,4 +330,8 @@ footer span {
 
 .card:not(.fade) {
   animation: cardAppear 0.5s ease-out;
+}
+
+.theme-switch {
+  box-sizing: border-box;
 }
