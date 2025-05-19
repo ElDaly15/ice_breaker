@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Ice Breaker Game - A fun way to break the ice and get to know each other better!" />
   <title>Ice Breaker Game</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
   <link rel="icon" href="https://esllibrary.s3.amazonaws.com/uploads/post/title_image/1964/Melissa_Key-Takeaways-from-TEFL-International-Webinar-on-Ice-Breaker-Games_Banner.png" type="image/png">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -15,26 +16,42 @@
     <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
   </header>
 
-  <label for="category">اختر الفئة:</label>
-  <select id="category">
-    <option value="dreams">بحلم بـ</option>
-    <option value="situations">مواقف</option>
-    <option value="relationships">علاقات</option>
-    <option value="entertainment">ترفيه</option>
-    <option value="personal">اسئله شخصيه</option>
-    <option value="imagination">خيالك</option>
-    <option value="values">مبدأ</option>
-  </select>
+  <main>
+    <div class="controls">
+      <label for="category">اختر الفئة:</label>
+      <select id="category" aria-label="Select category">
+        <option value="dreams">بحلم بـ</option>
+        <option value="situations">مواقف</option>
+        <option value="relationships">علاقات</option>
+        <option value="entertainment">ترفيه</option>
+        <option value="personal">اسئله شخصيه</option>
+        <option value="imagination">خيالك</option>
+        <option value="values">مبدأ</option>
+      </select>
 
-  <button onclick="drawCard()">الكارت الجاي 🔁</button>
-  <button onclick="resetGame()">🔄 إعادة التشغيل</button>
+      <div class="button-group">
+        <button onclick="drawCard()" class="primary-button">
+          <span class="button-icon">🔁</span>
+          الكارت الجاي
+        </button>
+        <button onclick="resetGame()" class="secondary-button">
+          <span class="button-icon">🔄</span>
+          إعادة التشغيل
+        </button>
+      </div>
+    </div>
 
-  <div id="card" class="card">اختر فئة واضغط الزر لعرض كارت جديد</div>
+    <div id="card" class="card" role="region" aria-live="polite">
+      اختر فئة واضغط الزر لعرض كارت جديد
+    </div>
+  </main>
 
   <audio id="cardSound" src="https://www.soundjay.com/button/button-29.mp3" preload="auto"></audio>
+  <audio id="resetSound" src="https://www.soundjay.com/button/button-10.mp3" preload="auto"></audio>
 
   <footer>
-    Developed By <span>Daly</span> And <span>Mariam</span>
+    <p class="version">Version 1.0</p>
+    <p>Developed By <span>Daly</span> And <span>Mariam</span></p>
   </footer>
 
   <script src="script.js"></script>
