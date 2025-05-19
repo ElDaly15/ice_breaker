@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -10,7 +10,10 @@
 </head>
 <body>
 
-  <header class="bebas">🎴 Ice Breaker 🎴</header>
+  <header class="bebas">
+    🎴 Ice Breaker 🎴
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+  </header>
 
   <label for="category">اختر الفئة:</label>
   <select id="category">
@@ -25,7 +28,6 @@
 
   <button onclick="drawCard()">الكارت الجاي 🔁</button>
   <button onclick="resetGame()">🔄 إعادة التشغيل</button>
-
 
   <div id="card" class="card">اختر فئة واضغط الزر لعرض كارت جديد</div>
 

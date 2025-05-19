@@ -1,3 +1,26 @@
+// Theme toggle functionality
+function toggleTheme() {
+  const html = document.documentElement;
+  const themeToggle = document.querySelector('.theme-toggle');
+  
+  if (html.getAttribute('data-theme') === 'light') {
+    html.setAttribute('data-theme', 'dark');
+    themeToggle.textContent = '☀️';
+    localStorage.setItem('theme', 'dark');
+  } else {
+    html.setAttribute('data-theme', 'light');
+    themeToggle.textContent = '🌙';
+    localStorage.setItem('theme', 'light');
+  }
+}
+
+// Initialize theme from localStorage
+document.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  document.querySelector('.theme-toggle').textContent = savedTheme === 'light' ? '🌙' : '☀️';
+});
+
 const cards = {
       dreams: [
         "لو فزت بمليون جنيه، هتعمل إيه أول حاجة؟",
@@ -124,7 +147,7 @@ const cards = {
         "هل تقدر تحافظ على صداقة من غير تواصل مستمر؟",
         "إيه الفرق بين الصديق والمعارف؟",
         "هل تتقبل النقد من حد قريب؟",
-        "بتحب تحكي أسرارك لمين؟",
+        "بتحكي أسرارك لمين؟",
         "إيه أكتر حاجة تعلمتها من علاقة فشلت؟",
         "شايف إن فيه قواعد للعلاقات؟",
         "هل تعتقد إن المسافة بتفرق في الصداقات؟",
