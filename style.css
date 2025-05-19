@@ -55,74 +55,127 @@ header {
   width: 100%;
   box-sizing: border-box;
   text-align: center;
-  box-shadow: 0 2px 10px var(--shadow-color);
+  box-shadow: 0 4px 20px var(--shadow-color);
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  20% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+header .bebas {
+  font-size: 2.5rem;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 0;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+header .bebas:hover {
+  transform: scale(1.05);
+}
+
+header .bebas::after {
+  content: '🎴';
+  position: absolute;
+  right: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  opacity: 0.8;
+  animation: float 2s ease-in-out infinite;
+}
+
+header .bebas::before {
+  content: '🎴';
+  position: absolute;
+  left: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  opacity: 0.8;
+  animation: float 2s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-50%) rotate(15deg);
+  }
 }
 
 .theme-toggle {
   position: absolute;
-  right: 1rem;
+  right: 1.5rem;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 50% !important;
   color: white;
   cursor: pointer;
   font-size: 1.5rem;
   padding: 0.5rem;
   transition: all 0.3s ease;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   outline: none;
-  box-shadow: none;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  border-style: solid;
-  box-sizing: border-box;
-  overflow: hidden;
-  will-change: transform;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 10;
 }
 
-.theme-toggle:focus,
-.theme-toggle:active {
-  padding: 0.5rem !important;
-  width: 40px !important;
-  height: 40px !important;
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
-  box-sizing: border-box !important;
-  outline: none !important;
-  box-shadow: none !important;
-  background-clip: padding-box !important;
-  -webkit-tap-highlight-color: transparent !important;
-  -webkit-user-select: none !important;
-  user-select: none !important;
-}
-
-.theme-toggle::-moz-focus-inner {
-  border: 0;
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="dark"] .theme-toggle {
   background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transform: translateY(-50%);
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 [data-theme="dark"] .theme-toggle:hover {
   background: rgba(0, 0, 0, 0.4);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  transform: translateY(-50%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 select {
@@ -251,11 +304,18 @@ footer span {
 
 /* Media Queries */
 @media screen and (max-width: 768px) {
-  .bebas {
-    font-size: 24px;
+  header .bebas {
+    font-size: 2rem;
   }
-
+  
+  header .bebas::before,
+  header .bebas::after {
+    font-size: 1.2rem;
+  }
+  
   .theme-toggle {
+    width: 40px;
+    height: 40px;
     font-size: 1.2rem;
   }
 
@@ -278,16 +338,20 @@ footer span {
 }
 
 @media screen and (max-width: 480px) {
-  .bebas {
-    font-size: 20px;
+  header .bebas {
+    font-size: 1.5rem;
   }
-
-  header {
-    padding: 1rem;
-  }
-
-  .theme-toggle {
+  
+  header .bebas::before,
+  header .bebas::after {
     font-size: 1rem;
+  }
+  
+  .theme-toggle {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    right: 1rem;
   }
 
   select {
