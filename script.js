@@ -19,7 +19,59 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
   document.querySelector('.theme-toggle').textContent = savedTheme === 'light' ? '🌙' : '☀️';
+  
+  // Add event listeners for footer buttons
+  document.querySelector('.share-btn').addEventListener('click', shareGame);
+  document.querySelector('.about-btn').addEventListener('click', showAboutInfo);
 });
+
+// Share functionality
+function shareGame() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Ice Breaker Game',
+      text: 'Check out this fun Ice Breaker game!',
+      url: window.location.href
+    })
+    .then(() => console.log('Shared successfully'))
+    .catch((error) => console.log('Error sharing:', error));
+  } else {
+    // Fallback for browsers that don't support the Web Share API
+    alert('للمشاركة: انسخ الرابط من المتصفح وشاركه مع أصدقائك');
+  }
+}
+
+// About Us info
+function showAboutInfo() {
+  const card = document.getElementById('card');
+  const currentContent = card.textContent;
+  
+  card.classList.add('fade');
+  setTimeout(() => {
+    card.innerHTML = `
+      <h3>من نحن</h3>
+      <p>لعبة Ice Breaker تم تطويرها بواسطة Daly و Mariam لمساعدة الناس على التعارف وكسر الجليد في المناسبات الاجتماعية.</p>
+      <p>استمتع باللعبة وشاركها مع أصدقائك!</p>
+      <button class="back-btn" onclick="restoreCard()">العودة للعبة</button>
+    `;
+    card.classList.remove('fade');
+  }, 300);
+  
+  // Store the previous content to restore it later
+  card.dataset.previousContent = currentContent;
+}
+
+// Restore card content
+function restoreCard() {
+  const card = document.getElementById('card');
+  const previousContent = card.dataset.previousContent;
+  
+  card.classList.add('fade');
+  setTimeout(() => {
+    card.textContent = previousContent;
+    card.classList.remove('fade');
+  }, 300);
+}
 
 const cards = {
       dreams: [
