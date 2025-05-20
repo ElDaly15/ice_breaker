@@ -8,6 +8,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
   <link rel="icon" href="https://esllibrary.s3.amazonaws.com/uploads/post/title_image/1964/Melissa_Key-Takeaways-from-TEFL-International-Webinar-on-Ice-Breaker-Games_Banner.png" type="image/png">
   <link rel="stylesheet" href="style.css">
+  
+  <!-- Google AdSense Script - Replace with your actual AdSense publisher ID when you get it -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -16,35 +19,66 @@
     <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
   </header>
 
-  <main>
-    <div class="controls">
-      <label for="category">اختر الفئة:</label>
-      <select id="category" aria-label="Select category">
-        <option value="dreams">بحلم بـ</option>
-        <option value="situations">مواقف</option>
-        <option value="relationships">علاقات</option>
-        <option value="entertainment">ترفيه</option>
-        <option value="personal">اسئله شخصيه</option>
-        <option value="imagination">خيالك</option>
-        <option value="values">مبدأ</option>
-      </select>
+  <!-- Top ad container -->
+  <div class="ad-container ad-container-top">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 
-      <div class="button-group">
-        <button onclick="drawCard()" class="primary-button">
-          <span class="button-icon">🔁</span>
-          الكارت الجاي
-        </button>
-        <button onclick="resetGame()" class="secondary-button">
-          <span class="button-icon">🔄</span>
-          إعادة التشغيل
-        </button>
+  <div class="content-wrapper">
+    <main>
+      <div class="controls">
+        <label for="category">اختر الفئة:</label>
+        <select id="category" aria-label="Select category">
+          <option value="dreams">بحلم بـ</option>
+          <option value="situations">مواقف</option>
+          <option value="relationships">علاقات</option>
+          <option value="entertainment">ترفيه</option>
+          <option value="personal">اسئله شخصيه</option>
+          <option value="imagination">خيالك</option>
+          <option value="values">مبدأ</option>
+        </select>
+
+        <div class="button-group">
+          <button onclick="drawCard()" class="primary-button">
+            <span class="button-icon">🔁</span>
+            الكارت الجاي
+          </button>
+          <button onclick="resetGame()" class="secondary-button">
+            <span class="button-icon">🔄</span>
+            إعادة التشغيل
+          </button>
+        </div>
       </div>
-    </div>
 
-    <div id="card" class="card" role="region" aria-live="polite">
-      اختر فئة واضغط الزر لعرض كارت جديد
-    </div>
-  </main>
+      <div id="card" class="card" role="region" aria-live="polite">
+        اختر فئة واضغط الزر لعرض كارت جديد
+      </div>
+    </main>
+
+    <!-- Side ad container - only visible on larger screens -->
+   
+  </div>
+
+  <!-- Bottom ad container -->
+  <div class="ad-container ad-container-bottom">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 
   <audio id="cardSound" src="https://www.soundjay.com/button/button-29.mp3" preload="auto"></audio>
   <audio id="resetSound" src="https://www.soundjay.com/button/button-10.mp3" preload="auto"></audio>
@@ -58,8 +92,6 @@
     <p class="version">Version 1.0</p>
     <p>Developed By <span>Daly</span> And <span>Mariam</span></p>
   </footer>
-
-
 
   <script src="script.js"></script>
 </body>

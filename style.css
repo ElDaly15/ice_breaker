@@ -45,8 +45,9 @@ body {
 
 main {
   width: 100%;
-  max-width: none;
-  padding: 1rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
   box-sizing: border-box;
   flex: 1;
   display: flex;
@@ -977,4 +978,126 @@ footer span {
 
 [data-theme="dark"] .back-btn:hover {
   background: var(--primary-color);
+}
+
+/* Ad Container Styles */
+.ad-container {
+  width: 100%;
+  max-width: 970px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: var(--card-background);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  transition: background-color 0.3s;
+}
+
+.ad-container-top {
+  margin-bottom: 1.5rem;
+}
+
+.ad-container-bottom {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Hide ad containers on small screens in landscape mode */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .ad-container {
+    display: none;
+  }
+}
+
+/* Responsive adjustments for ads */
+@media screen and (max-width: 768px) {
+  .ad-container {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .ad-container-top {
+    margin-bottom: 1rem;
+  }
+  
+  .ad-container-bottom {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ad-container {
+    padding: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .ad-container-top {
+    margin-bottom: 0.75rem;
+  }
+  
+  .ad-container-bottom {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+/* Additional responsiveness for very small screens */
+@media screen and (max-width: 360px) {
+  .ad-container {
+    padding: 0.3rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .ad-container-top {
+    margin-bottom: 0.5rem;
+  }
+  
+  .ad-container-bottom {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .content-wrapper {
+    padding: 0 0.5rem;
+  }
+}
+
+/* Content wrapper for main content and side ad */
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* Side ad container */
+.ad-container-side {
+  width: 300px;
+  height: 600px; /* Standard large rectangle/skyscraper size */
+  flex-shrink: 0;
+  margin-top: 1rem;
+  position: sticky;
+  top: 1rem;
+}
+
+/* Hide side ad on smaller screens */
+@media screen and (max-width: 1024px) {
+  .ad-container-side {
+    display: none;
+  }
+}
+
+/* Update main content width for better layout with ads */
+@media screen and (max-width: 1024px) {
+  main {
+    max-width: none;
+  }
 }

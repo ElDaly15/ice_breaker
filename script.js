@@ -12,6 +12,30 @@ function toggleTheme() {
     themeToggle.textContent = '🌙';
     localStorage.setItem('theme', 'light');
   }
+  
+  // Refresh ads when theme changes
+  refreshAds();
+}
+
+// Function to refresh ads
+function refreshAds() {
+  // Only try to refresh if AdSense is loaded
+  if (window.adsbygoogle && window.adsbygoogle.push) {
+    try {
+      // Get all ad containers
+      const adContainers = document.querySelectorAll('.ad-container');
+      
+      // For each container, create new ad
+      adContainers.forEach(container => {
+        const adElement = container.querySelector('ins.adsbygoogle');
+        if (adElement && !adElement.dataset.adsbygoogleStatus) {
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        }
+      });
+    } catch (e) {
+      console.error('Error refreshing ads:', e);
+    }
+  }
 }
 
 // Initialize theme from localStorage
@@ -23,6 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add event listeners for footer buttons
   document.querySelector('.share-btn').addEventListener('click', shareGame);
   document.querySelector('.about-btn').addEventListener('click', showAboutInfo);
+  
+  // Initialize ads after DOM is fully loaded
+  setTimeout(refreshAds, 500);
 });
 
 // Share functionality
